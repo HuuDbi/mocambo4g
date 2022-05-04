@@ -1,72 +1,101 @@
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+bind-address: "*"
+ipv6: false
 dns:
   enable: true
-  enhanced-mode: fake-ip
-  listen: 0.0.0.0:53
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7894
+  fallback-filter:
+    geoip: false
+    ipcidr:
+    - 240.0.0.0/4
   nameserver:
-    - 223.5.5.5
-  fake-ip-filter:
-    - "dns.msftncsi.com"
-    - "www.msftncsi.com"
-    - "www.msftconnecttest.com"
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+    - tls://1.1.1.1:853
+    - tls://8.8.8.8:853
+  fallback:
+    - tcp://1.1.1.1
+    - tcp://8.8.8.8
+    - 1.1.1.1
+    - 8.8.8.8
+tun:
+  enable: true
+  stack: system 
+  macOS-auto-route: true
+  macOS-auto-detect-interface: true
+  dns-hijack:
+    - tcp://8.8.8.8:53
+experimental:
+  interface-name: en0
+
 proxies:
   - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-dallas.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-dallas.lvuft.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 34, server: 104.16.18.94, port: 443, type: vmess, uuid: 0e7036c1-6de1-4a83-ef4f-e0d56c67fa10, sni: ruvds.testx.eu.org, alterId: 0, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /vmess-share/?ed=2048, headers: {Host: ruvds.testx.eu.org}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 80, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ahdaeph8.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ahdaeph8.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 65, server: 104.16.18.94, port: 443, type: vmess, uuid: 0e7036c1-6de1-4a83-ef4f-e0d56c67fa10, sni: ruvds.testx.eu.org, alterId: 0, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /vmess-share/?ed=2048, headers: {Host: ruvds.testx.eu.org}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 48, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ahdaeph8.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ahdaeph8.com}}}
   - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: zecjk.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: zecjk.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 96, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: eeh7iewe.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: eeh7iewe.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 20, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: germany-dusseldorf.mah3Hoet.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: germany-dusseldorf.mah3Hoet.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 67, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: lvuft.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 51, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: uk-manchester.eiw2eemo.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: uk-manchester.eiw2eemo.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 52, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-washington.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-washington.lvuft.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 71, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ycgyg.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ycgyg.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 27, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: eeh7iewe.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: eeh7iewe.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 48, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: aicoo6du.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: aicoo6du.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 30, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: viibah6u.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: viibah6u.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 88, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-buffalo.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-buffalo.lvuft.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 99, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: iesei1ei.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: iesei1ei.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 42, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-washington.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-washington.lvuft.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 39, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-buffalo.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-buffalo.lvuft.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 25, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: viibah6u.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: viibah6u.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 10, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: lvuft.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 67, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ahdaeph8.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ahdaeph8.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 75, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: iesei1ei.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: iesei1ei.com}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 34, server: 104.16.18.94, port: 443, type: vmess, uuid: 0e7036c1-6de1-4a83-ef4f-e0d56c67fa10, sni: ruvds.testx.eu.org, alterId: 0, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /vmess-share/?ed, headers: {Host: ruvds.testx.eu.org}}}
-  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 56, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ycgyg.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ycgyg.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 75, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: eeh7iewe.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: eeh7iewe.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 51, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: germany-dusseldorf.mah3Hoet.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: germany-dusseldorf.mah3Hoet.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 13, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: lvuft.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 93, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: uk-manchester.eiw2eemo.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: uk-manchester.eiw2eemo.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 24, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-washington.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-washington.lvuft.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 28, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ycgyg.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ycgyg.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 2, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: eeh7iewe.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: eeh7iewe.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 82, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: aicoo6du.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: aicoo6du.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 6, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: viibah6u.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: viibah6u.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 22, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: zecjk.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: zecjk.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 29, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-buffalo.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-buffalo.lvuft.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 36, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-dallas.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-dallas.lvuft.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 39, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: iesei1ei.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: iesei1ei.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 97, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-washington.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-washington.lvuft.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 48, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-buffalo.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-buffalo.lvuft.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 15, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: viibah6u.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: viibah6u.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 61, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: lvuft.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 95, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ahdaeph8.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ahdaeph8.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 92, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: iesei1ei.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: iesei1ei.com}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 75, server: 104.16.18.94, port: 443, type: vmess, uuid: 0e7036c1-6de1-4a83-ef4f-e0d56c67fa10, sni: ruvds.testx.eu.org, alterId: 0, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /vmess-share/?ed, headers: {Host: ruvds.testx.eu.org}}}
+  - {name: 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 29, server: 104.16.18.94, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ycgyg.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ycgyg.com}}}
 
 proxy-groups:
   - name: sshkit-generator
-    type: load-balance
+    type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
-    strategy: consistent-hashing
     proxies:
       - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 34
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 80
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 96
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 20
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 67
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 51
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 52
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 71
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 27
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 65
       - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 48
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 30
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 20
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 88
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 96
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 99
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 42
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 39
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 25
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 10
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 67
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 75
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 34
-      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 56
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 75
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 51
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 13
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 93
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 24
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 28
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 2
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 82
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 6
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 22
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 29
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 36
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 39
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 97
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 48
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 15
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 61
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 95
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 92
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (STA_IZABEL_PA) 👓JAILSON👓 75
+      - 📶MOCAMBO SERVIDOR PRIVADO📶 (🇧🇷STA_IZABEL_PA🇧🇷) 👓JAILSON👓 29
 
 rules:
  - MATCH,sshkit-generator
-
-
