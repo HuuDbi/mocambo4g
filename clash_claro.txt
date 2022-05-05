@@ -1,0 +1,101 @@
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+bind-address: "*"
+ipv6: false
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7894
+  fallback-filter:
+    geoip: false
+    ipcidr:
+    - 240.0.0.0/4
+  nameserver:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+    - tls://1.1.1.1:853
+    - tls://8.8.8.8:853
+  fallback:
+    - tcp://1.1.1.1
+    - tcp://8.8.8.8
+    - 1.1.1.1
+    - 8.8.8.8
+tun:
+  enable: true
+  stack: system 
+  macOS-auto-route: true
+  macOS-auto-detect-interface: true
+  dns-hijack:
+    - tcp://8.8.8.8:53
+experimental:
+  interface-name: en0
+
+proxies:
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶, server: no.descomplica.com.br, port: 443, type: vmess, uuid: 0e7036c1-6de1-4a83-ef4f-e0d56c67fa10, sni: ruvds.testx.eu.org, alterId: 0, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /vmess-share/?ed, headers: {Host: ruvds.testx.eu.org}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 14, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ahdaeph8.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ahdaeph8.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 34, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: lvuft.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 34, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: viibah6u.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: viibah6u.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 82, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-washington.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-washington.lvuft.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 80, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: iesei1ei.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: iesei1ei.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 64, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-dallas.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-dallas.lvuft.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 20, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-buffalo.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-buffalo.lvuft.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 94, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ycgyg.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ycgyg.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 12, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: eeh7iewe.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: eeh7iewe.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 83, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: zecjk.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: zecjk.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 74, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ycgyg.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ycgyg.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 26, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: iesei1ei.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: iesei1ei.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 96, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-buffalo.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-buffalo.lvuft.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 38, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: zecjk.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: zecjk.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 48, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: viibah6u.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: viibah6u.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 31, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: aicoo6du.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: aicoo6du.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 30, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: eeh7iewe.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: eeh7iewe.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 72, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-washington.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-washington.lvuft.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 66, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: uk-manchester.eiw2eemo.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: uk-manchester.eiw2eemo.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 53, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: lvuft.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 36, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: germany-dusseldorf.mah3Hoet.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: germany-dusseldorf.mah3Hoet.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 91, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: ahdaeph8.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: ahdaeph8.com}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 69, server: no.descomplica.com.br, port: 443, type: vmess, uuid: 0e7036c1-6de1-4a83-ef4f-e0d56c67fa10, sni: ruvds.testx.eu.org, alterId: 0, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /vmess-share/?ed=2048, headers: {Host: ruvds.testx.eu.org}}}
+  - {name: 📶MOCAMBO(CLARO SERVIDOR)📶 83, server: no.descomplica.com.br, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, sni: usa-dallas.lvuft.com, alterId: 4, cipher: auto, tls: 1, skip-cert-verify: true, udp: true, network: ws, ws-opts: {path: /ws, headers: {Host: usa-dallas.lvuft.com}}}
+
+proxy-groups:
+  - name: sshkit-generator
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    proxies:
+      - 📶MOCAMBO(CLARO SERVIDOR)📶
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 14
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 34
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 34
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 82
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 80
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 64
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 20
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 94
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 12
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 83
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 74
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 26
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 96
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 38
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 48
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 31
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 30
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 72
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 66
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 53
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 36
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 91
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 69
+      - 📶MOCAMBO(CLARO SERVIDOR)📶 83
+
+rules:
+ - MATCH,sshkit-generator
